@@ -17,7 +17,12 @@ class NoIntrnetViewController: UIViewController {
     
 
     @IBAction func dismissAction(_ sender: Any) {
-        
+        let vc = Storyboard.Main.instantiate(MovieViewController.self)
+        let nav = UINavigationController(rootViewController: vc)
+        nav.navigationBar.isHidden = true
+        let configurator = MovieConfiguratorImplementation()
+        configurator.configure(MovieViewController: vc)
+        self.view.window?.rootViewController = nav
     }
     /*
     // MARK: - Navigation
