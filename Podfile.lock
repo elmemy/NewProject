@@ -1,33 +1,41 @@
 PODS:
   - Alamofire (5.6.1)
+  - Kingfisher (7.2.2)
   - Localize-Swift (3.2.0):
     - Localize-Swift/LocalizeSwiftCore (= 3.2.0)
     - Localize-Swift/UIKit (= 3.2.0)
   - Localize-Swift/LocalizeSwiftCore (3.2.0)
   - Localize-Swift/UIKit (3.2.0):
     - Localize-Swift/LocalizeSwiftCore
+  - SkeletonView (1.29.2)
   - SwiftEntryKit (2.0.0)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - Alamofire
+  - Kingfisher
   - Localize-Swift (~> 3.2)
+  - SkeletonView
   - SwiftEntryKit
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Kingfisher
     - Localize-Swift
+    - SkeletonView
     - SwiftEntryKit
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
+  Kingfisher: 184d4d1a8c36666e663caf8e08abe87898595c53
   Localize-Swift: 6f4475136bdb0d7b2882ea3d4ea919d70142b232
+  SkeletonView: 915a80ecc2b6421ab7ac0f0212321c0cc1406472
   SwiftEntryKit: 61b5fa36f34a97dd8013e48a7345bc4c4720be9a
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: c8a5d40efa75f7585294b995559ee8d3ffb1a656
+PODFILE CHECKSUM: 24db2e4f1903aa4f0deebe66e58d6875d758236b
 
 COCOAPODS: 1.11.3

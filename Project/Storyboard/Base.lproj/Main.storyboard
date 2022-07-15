@@ -8,23 +8,52 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Movie View Controller-->
         <scene sceneID="mYe-fZ-1oK">
             <objects>
-                <viewController id="bi6-mg-2zm" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MovieViewController" id="bi6-mg-2zm" customClass="MovieViewController" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="enY-df-mBz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZM8-zc-YR4">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="prefetchDataSource" destination="bi6-mg-2zm" id="Blt-jT-QYY"/>
+                                </connections>
+                            </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty_box" translatesAutoresizingMaskIntoConstraints="NO" id="JIq-z1-qiw">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="NsG-5b-Zdy"/>
+                                    <constraint firstAttribute="width" constant="240" id="SS6-8A-eo7"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="jBN-qB-4jI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ZM8-zc-YR4" secondAttribute="bottom" id="Evj-Eh-0vK"/>
+                            <constraint firstItem="ZM8-zc-YR4" firstAttribute="leading" secondItem="jBN-qB-4jI" secondAttribute="leading" id="G8a-PT-EX9"/>
+                            <constraint firstItem="JIq-z1-qiw" firstAttribute="centerY" secondItem="enY-df-mBz" secondAttribute="centerY" id="Lv8-U8-8fp"/>
+                            <constraint firstItem="ZM8-zc-YR4" firstAttribute="top" secondItem="enY-df-mBz" secondAttribute="top" id="T1U-ys-Ljj"/>
+                            <constraint firstItem="ZM8-zc-YR4" firstAttribute="trailing" secondItem="jBN-qB-4jI" secondAttribute="trailing" id="XRi-Iq-iyM"/>
+                            <constraint firstItem="JIq-z1-qiw" firstAttribute="centerX" secondItem="enY-df-mBz" secondAttribute="centerX" id="by7-c1-aAw"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="noDataImage" destination="JIq-z1-qiw" id="Wau-d8-azH"/>
+                        <outlet property="tableView" destination="ZM8-zc-YR4" id="INE-XD-lnU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4xM-XJ-uoy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-733" y="49"/>
+            <point key="canvasLocation" x="-733.33333333333337" y="48.883928571428569"/>
         </scene>
     </scenes>
     <resources>
+        <image name="empty_box" width="490.5" height="474"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

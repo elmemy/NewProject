@@ -10,7 +10,7 @@ import Foundation
 struct URLs {
     
     //Base URL
-    static let BASE = "https://yarmouka.4hoste.com/api/"
+    static let BASE = "https://yts.mx/api/v2/"
 
     
 }

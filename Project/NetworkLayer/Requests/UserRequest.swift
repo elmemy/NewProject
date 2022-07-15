@@ -11,13 +11,13 @@ import Alamofire
 enum APIRouter: URLRequestBuilder,APIRequestHandler {
     
     
-    case login(userType: String, phone: String,password:String,deviceID:String,deviceType:String)
+    case Movies(page:Int)
   
     // MARK: - Path
     internal var path: String {
         switch self {
-        case .login:
-            return "sign-in"
+        case .Movies:
+            return "list_movies.json"
         }
         
     }
@@ -27,13 +27,9 @@ enum APIRouter: URLRequestBuilder,APIRequestHandler {
     internal var parameters: Parameters {
         var params = Parameters.init()
         switch self {
-        case .login(let userType, let phone, let password, let deviceID, let deviceType):
-            params["user_type"] = userType
-            params["phone"] = phone
-            params["password"] = password
-            params["device_id"] = deviceID
-            params["device_type"] = deviceType
-            
+        case .Movies(let page):
+            params["page"] = page
+
       
          
         default:
@@ -52,8 +48,8 @@ enum APIRouter: URLRequestBuilder,APIRequestHandler {
     // MARK: - Methods
     internal var method: HTTPMethod {
         switch self {
-        case .login:
-            return .post
+//        case .login:
+//            return .post
             
         default:
             return .get

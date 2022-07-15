@@ -16,16 +16,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        startView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveNoIntrnet(_:)), name: Notification.Name.noIntrnet, object: nil)
         
-        
-        if Connectivity.isConnectedToInternet() != true{
-            NotificationCenter.default.post(name: Notification.Name.noIntrnet, object: nil)
-        }
         guard let _ = (scene as? UIWindowScene) else { return }
     }
     
+    func startView(){
+        let vc = Storyboard.Main.instantiate(MovieViewController.self)
+        let nav = UINavigationController(rootViewController: vc)
+        nav.navigationBar.isHidden = true
+        let configurator = MovieConfiguratorImplementation()
+        configurator.configure(MovieViewController: vc)
+        self.window?.rootViewController = nav
+    }
     
     @objc func onDidReceiveNoIntrnet(_ notification: Notification) {
         let vc = NoIntrnetViewController.loadFromNib()

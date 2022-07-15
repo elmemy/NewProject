@@ -11,8 +11,9 @@ target 'Project' do
   pod 'Localize-Swift', '~> 3.2'
   pod 'SwiftEntryKit'
   pod 'SwiftyJSON', '~> 4.0'
-  
-  
+  pod 'Kingfisher'
+  pod 'SkeletonView'
+
   post_install do |installer|
     installer.pods_project.targets.each do |target|
       installer.pods_project.build_configurations.each do |config|
