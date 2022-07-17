@@ -7,23 +7,40 @@
 
 import UIKit
 import SkeletonView
+
 final class MovieViewController: UIViewController {
-    
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noDataImage: UIImageView!
-    
+
     var presenter: MoviePresenter?
     
+    private let refreshControl = UIRefreshControl()
+
     // MARK: - UIViewController Events
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.reloadData()
         setupTableView()
         presenter?.viewDidLoad()
+        RefreshControl()
     }
     
+    
+    //UIRefreshControl
+    func RefreshControl(){
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+       // Code to refresh table view
+        presenter?.reloadDataFromRefreshControl()
+        refreshControl.endRefreshing()
+
+    }
 }
 
 

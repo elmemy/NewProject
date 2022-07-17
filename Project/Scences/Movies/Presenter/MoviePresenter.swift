@@ -26,6 +26,7 @@ protocol MoviePresenter {
     func numberOfRow() -> Int
     func didSelect(index: Int)
     func isPagination() -> Bool
+    func reloadDataFromRefreshControl()
 }
 
 class MoviePresenterImplementation: MoviePresenter {
@@ -78,6 +79,14 @@ class MoviePresenterImplementation: MoviePresenter {
         }
         
     }
+    
+    func reloadDataFromRefreshControl() {
+        self.page = 1
+        self.movieModel = []
+        getData()
+    }
+    
+    
     
     
     func numberOfRow() -> Int {
